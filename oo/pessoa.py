@@ -17,3 +17,7 @@ if __name__ == '__main__':
     print(luciano.idade)
     for filho in luciano.filhos:
         print(filho.nome)
+    luciano.sobrenome = 'Ramalho' #adicionando um atributo especifico para a def criada, serve apenas para este nome.
+    del luciano.filhos
+    print(luciano.__dict__)
+    print(mathews.__dict__)
