@@ -70,7 +70,7 @@ O       L
     >>> direcao.girar_a_esquerda()
     >>> direcao.valor
     'Norte'
-    >>> carro = Carro(direcao, Motor)
+    >>> carro = Carro(direcao, motor)
     >>> carro.calcular_velocidade()
     0
     >>> carro.acelerar()
@@ -83,18 +83,44 @@ O       L
     >>> carro.calcular_velocidade()
     0
     >>> carro.calcular_direcao()
-    >>> 'Norte'
+    'Norte'
     >>> carro.girar_a_direita()
     >>> carro.calcular_direcao()
-    >>> 'Leste'
+    'Leste'
     >>> carro.girar_a_esquerda()
     >>> carro.calcular_direcao()
-    >>> 'Norte'
+    'Norte'
     >>> carro.girar_a_esquerda()
     >>> carro.calcular_direcao()
-    >>> 'Oeste'
+    'Oeste'
 
 """
+
+class Carro:
+    def __init__(self, direcao, motor):
+        self.direcao = direcao
+        self.motor = motor
+
+    def calcular_velocidade(self):
+        return self.motor.velocidade
+
+    def velocidade(self):
+        return self.velocidade
+
+    def acelerar(self):
+        self.motor.acelerar()
+
+    def frear(self):
+        self.motor.frear()
+
+    def calcular_direcao(self):
+        return self.direcao.valor
+
+    def girar_a_direita(self):
+        self.direcao.girar_a_direita()
+
+    def girar_a_esquerda(self):
+        self.direcao.girar_a_esquerda()
 
 
 class Motor:
@@ -102,9 +128,6 @@ class Motor:
 
     def __init__(self):
         self.velocidade = 0
-
-    def velocidade(self):
-        return self.velocidade
 
     def acelerar(self):
         if self.velocidade >= 0:
@@ -114,11 +137,6 @@ class Motor:
         self.velocidade -= 2
         self.velocidade = max(0, self.velocidade) # retorna o valor maior entre 0 e o maior valor da velocidade
 
-
-if __name__ == '__main__':
-    motor = Motor()
-    motor.acelerar()
-    motor.velocidade()
 
 NORTE = 'Norte'
 SUL = 'Sul'
